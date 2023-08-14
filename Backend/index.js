@@ -14,7 +14,7 @@ app.use(express.json())
 
 // Cors Policy
 app.use(cors({
-    origin: https://sea-food-seven.vercel.app ,
+    origin: "https://sea-food-seven.vercel.app" ,
     methods:["POST","GET","PUT"],
     credentials:true
   }));
