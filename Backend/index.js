@@ -13,11 +13,7 @@ const app =express()
 app.use(express.json())
 
 // Cors Policy
-app.use(cors({
-    origin:"https://sea-food-seven.vercel.app" ,
-    methods:["POST","GET","PUT"],
-    credentials:true
-  }));
+app.use(cors());
 
   
 //Route
