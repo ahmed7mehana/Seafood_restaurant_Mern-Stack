@@ -15,10 +15,10 @@ app.use(express.json())
 // Cors Policy
 app.use(cors({ 
     origin: (origin, callback) => { 
-        if (origin === 'URL') { 
-            callback(null, true); // Allow requests from http://api.doorat.com 
+        if (origin === 'https://sea-food-seven.vercel.app/') { 
+            callback(null, true); 
         } else { 
-            callback(new Error('Not allowed by CORS')); // Reject requests from other origins 
+            callback(new Error('Not allowed by CORS')); 
         } 
     }, 
     methods: ['GET', 'POST', 'DELETE', 'PUT', 'PATCH'], 
