@@ -15,7 +15,7 @@ app.use(bodyParser.json())
 
 // Cors Policy
 app.use(cors({
-  origin: '*',
+  origin: 'https://sea-food-seven.vercel.app/',
   methods: ['GET', 'POST', 'DELETE', 'PUT', 'PATCH'],
   credentials: true
 }));
