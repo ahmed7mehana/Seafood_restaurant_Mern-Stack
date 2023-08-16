@@ -13,16 +13,10 @@ const app =express()
 app.use(express.json())
 
 // Cors Policy
-app.use(cors({ 
-    origin: (origin, callback) => { 
-        if (origin === 'https://sea-food-seven.vercel.app/') { 
-            callback(null, true); 
-        } else { 
-            callback(new Error('Not allowed by CORS')); 
-        } 
-    }, 
-    methods: ['GET', 'POST', 'DELETE', 'PUT', 'PATCH'], 
-    credentials: true 
+app.use(cors({
+  origin: 'https://sea-food-seven.vercel.app',
+  methods: ['GET', 'POST', 'DELETE', 'PUT', 'PATCH'],
+  credentials: true
 }));
   
 //Route
