@@ -2,15 +2,16 @@ const mongoose =require("mongoose")
 const express =require("express")
 const connectionDB = require("./config/connectionDB")
 const cors = require("cors");
+const bodyParser=require('body-parser')
 require("dotenv").config()
 
 //
 connectionDB()
 // init
 const app =express()
-
 //middleware
-app.use(express.json())
+// app.use(express.json())
+app.use(bodyParser.json())
 
 // Cors Policy
 app.use(cors({
