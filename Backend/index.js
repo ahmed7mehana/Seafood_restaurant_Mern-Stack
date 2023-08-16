@@ -13,8 +13,17 @@ const app =express()
 app.use(express.json())
 
 // Cors Policy
-app.use(cors());
-
+app.use(cors({ 
+    origin: (origin, callback) => { 
+        if (origin === 'URL') { 
+            callback(null, true); // Allow requests from http://api.doorat.com 
+        } else { 
+            callback(new Error('Not allowed by CORS')); // Reject requests from other origins 
+        } 
+    }, 
+    methods: ['GET', 'POST', 'DELETE', 'PUT', 'PATCH'], 
+    credentials: true 
+}));
   
 //Route
 app.use("/api/auth",require("./router/authRoute"))
