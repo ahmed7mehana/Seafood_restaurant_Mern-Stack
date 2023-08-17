@@ -14,11 +14,13 @@ const app =express()
 app.use(bodyParser.json())
 
 // Cors Policy
-app.use(cors({
-  origin: 'https://sea-food-seven.vercel.app/',
-  methods: ['GET', 'POST', 'DELETE', 'PUT', 'PATCH'],
-  credentials: true
-}));
+
+app.use((_req,res,next)=>{
+  res.setHeader("Access-Control-Allow-Origin","*")
+  res.setHeader("Access-Control-Allow-Methods","OPTION, GET , POST, PUT , PATCH , DELETE")
+  res.setHeader("Access-Control-Allow-Headers","Content-Type,Authorization")
+  next()
+})
   
 //Route
 app.use("/api/auth",require("./router/authRoute"))
