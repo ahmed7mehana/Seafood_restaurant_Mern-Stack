@@ -14,13 +14,15 @@ const app =express()
 app.use(bodyParser.json())
 
 // Cors Policy
+  app.use(function (req, res, next) {
+    //Enabling CORS
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, 
+    Accept, x-client-key, x-client-token, x-client-secret, Authorization");
+      next();
+    });
 
-app.use((_req,res,next)=>{
-  res.setHeader("Access-Control-Allow-Origin","*")
-  res.setHeader("Access-Control-Allow-Methods","OPTION, GET , POST, PUT , PATCH , DELETE")
-  res.setHeader("Access-Control-Allow-Headers","Content-Type,Authorization")
-  next()
-})
   
 //Route
 app.use("/api/auth",require("./router/authRoute"))
