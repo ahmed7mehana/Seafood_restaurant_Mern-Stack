@@ -4,9 +4,6 @@ import { MealActions } from "../Slice/MealSlice";
 
 
 
-
-
-
 // Create meal  {done}
 export function createMeal(newMeal) {
   return async (dispatch, getState) => {
